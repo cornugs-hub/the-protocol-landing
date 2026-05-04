@@ -12,9 +12,14 @@ function ScrollToTop() {
   return null
 }
 
+// `import.meta.env.BASE_URL` matches the `base` configured in vite.config.ts
+// (e.g. '/the-protocol-landing/' on GitHub Pages, '/' under the apex domain).
+// Strip the trailing slash so React Router treats it as a basename.
+const ROUTER_BASENAME = import.meta.env.BASE_URL.replace(/\/$/, '')
+
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={ROUTER_BASENAME}>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Landing />} />
