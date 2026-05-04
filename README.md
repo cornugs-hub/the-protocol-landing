@@ -1,13 +1,13 @@
 # The Protocol — Landing Page
 
-React + Vite + Tailwind landing for [activateprotocol.com](https://activateprotocol.com).
+React + Vite + Tailwind landing page for [activateprotocol.com](https://activateprotocol.com).
 
 ## Stack
 
 - Vite + React + TypeScript
 - Tailwind CSS v3
 - Static HTML for `/privacy` and `/terms`
-- Deployed via GitHub Pages with custom domain
+- Deployed via GitHub Pages
 
 ## Local dev
 
@@ -24,23 +24,11 @@ Opens at `http://localhost:5173`.
 npm run build
 ```
 
-Output goes to `dist/`. Includes landing + `privacy.html` + `terms.html` + favicon + CNAME.
+Output goes to `dist/`. Includes landing + `privacy.html` + `terms.html` + favicon.
 
 ## Deploy
 
-Push to `main` triggers GitHub Action that builds and publishes to GitHub Pages.
-
-## Custom domain setup
-
-1. GitHub repo → Settings → Pages → Custom domain: `activateprotocol.com`
-2. DNS provider for `activateprotocol.com`:
-   - `A` record `@` → `185.199.108.153`
-   - `A` record `@` → `185.199.109.153`
-   - `A` record `@` → `185.199.110.153`
-   - `A` record `@` → `185.199.111.153`
-   - `CNAME` record `www` → `<your-github-username>.github.io`
-3. Wait DNS propagation (~10-60 min)
-4. Enable "Enforce HTTPS" once cert provisions
+Push to `main` triggers a GitHub Action that builds and publishes to GitHub Pages.
 
 ## Structure
 
@@ -62,5 +50,4 @@ public/
   privacy.html              ← Privacy Policy ES + EN
   terms.html                ← Terms of Service ES + EN
   favicon.svg
-  CNAME                     ← activateprotocol.com
 ```
