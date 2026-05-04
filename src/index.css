@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: #02030A;
+    color: rgb(226 232 240);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  *::selection {
+    background-color: #6C5CE7;
+    color: #ffffff;
+  }
+}
+
+@layer utilities {
+  .glow-primary {
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.4);
+  }
+  /* Mockup tap pulse — mirrors the hover effect on touch.
+     Goes from tilted → 0° (enter) → tilted (exit) using the same
+     duration and easing as the hover transition. */
+  @keyframes mockup-pulse-mobile {
+    0%   { transform: rotate(6deg); }
+    50%  { transform: rotate(0deg); }
+    100% { transform: rotate(6deg); }
+  }
+  @keyframes mockup-pulse-desktop {
+    0%   { transform: rotate(8deg); }
+    50%  { transform: rotate(0deg); }
+    100% { transform: rotate(8deg); }
+  }
+  .mockup-pulse {
+    animation: mockup-pulse-mobile 1400ms ease-out;
+  }
+  @media (min-width: 640px) {
+    .mockup-pulse {
+      animation: mockup-pulse-desktop 1400ms ease-out;
+    }
+  }
+  .text-glow-primary {
+    text-shadow: 0 0 20px rgba(108, 92, 231, 0.55);
+  }
+  .grid-lines {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  /* Solid gradient text using webkit clip — no opaque box fallback */
+  .text-gradient-primary {
+    background-image: linear-gradient(135deg, #8E7EF2 0%, #6C5CE7 60%, #5641D4 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .bg-primary-gradient {
+    background: linear-gradient(135deg, #6C5CE7 0%, #8E7EF2 100%);
+  }
+  .primary-halo {
+    background: radial-gradient(circle, rgba(108, 92, 231, 0.4) 0%, transparent 60%);
+  }
+  .primary-glow-border {
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .primary-glow-border:hover {
+    box-shadow: 0 0 30px rgba(108, 92, 231, 0.18);
+    border-color: rgba(108, 92, 231, 0.45);
+  }
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+}
