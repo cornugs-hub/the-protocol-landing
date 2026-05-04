@@ -1,11 +1,11 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// Build base path. Switch to '/' once DNS for activateprotocol.com is
-// pointing at GitHub Pages and the CNAME is active.
-const BASE = '/the-protocol-landing/'
-
+// Served from the apex domain https://activateprotocol.com via CNAME, so
+// `base` is `/`. If you ever want to deploy to the bare GitHub Pages URL
+// (https://cornugs-hub.github.io/the-protocol-landing/) instead, switch
+// this back to '/the-protocol-landing/'.
 export default defineConfig({
   plugins: [react()],
-  base: BASE,
+  base: '/',
 })
