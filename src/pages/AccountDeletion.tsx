@@ -87,9 +87,11 @@ function AccountDeletionES() {
         <li>Rutinas de ejercicio, sets, repeticiones, peso, RPE</li>
         <li>Comidas registradas, macros, calorías, fotos de comidas y etiquetas</li>
         <li>Sesiones de meditación y reflexiones escritas</li>
+        <li>Libros descargados, progreso de lectura, marcadores, notas y subrayados</li>
         <li>Misiones diarias, rachas y progreso</li>
         <li>Configuración personalizada y preferencias</li>
         <li>Tokens de notificación push</li>
+        <li>Historial de pagos y suscripciones (registros internos vinculados a tu cuenta; los recibos de Google Play / App Store los conserva la tienda según su política)</li>
       </ul>
 
       <H2>3. Datos que se conservan</H2>
@@ -174,9 +176,11 @@ function AccountDeletionEN() {
         <li>Workout routines, sets, reps, weight, RPE</li>
         <li>Logged meals, macros, calories, meal and label photos</li>
         <li>Meditation sessions and written reflections</li>
+        <li>Downloaded books, reading progress, bookmarks, notes, and highlights</li>
         <li>Daily missions, streaks, and progress</li>
         <li>Custom settings and preferences</li>
         <li>Push notification tokens</li>
+        <li>Payment and subscription history (internal records linked to your account; Google Play / App Store receipts are retained by the store per their policy)</li>
       </ul>
 
       <H2>3. Data that is retained</H2>

@@ -61,7 +61,7 @@ function DataDeletionES() {
       <ul className="list-disc pl-5 space-y-1.5">
         <li>Rutinas de ejercicio y todo el historial de entrenamientos</li>
         <li>Comidas registradas, macros y fotos de alimentos</li>
-        <li>Sesiones de meditación y reflexiones escritas</li>
+        <li>Módulo Mente: sesiones de meditación, reflexiones escritas, libros descargados, progreso de lectura, marcadores, notas y subrayados</li>
         <li>Misiones diarias, rachas y progreso</li>
         <li>Foto de perfil (sin eliminar la cuenta)</li>
         <li>Configuración personalizada</li>
@@ -140,7 +140,7 @@ function DataDeletionEN() {
       <ul className="list-disc pl-5 space-y-1.5">
         <li>Workout routines and full training history</li>
         <li>Logged meals, macros, and food photos</li>
-        <li>Meditation sessions and written reflections</li>
+        <li>Mind module: meditation sessions, written reflections, downloaded books, reading progress, bookmarks, notes, and highlights</li>
         <li>Daily missions, streaks, and progress</li>
         <li>Profile photo (without deleting the account)</li>
         <li>Custom settings</li>
