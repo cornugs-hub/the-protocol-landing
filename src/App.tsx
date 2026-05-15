@@ -3,6 +3,8 @@ import { useEffect } from "react"
 import { Landing } from "./pages/Landing"
 import { Privacy } from "./pages/Privacy"
 import { Terms } from "./pages/Terms"
+import { AccountDeletion } from "./pages/AccountDeletion"
+import { DataDeletion } from "./pages/DataDeletion"
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -25,6 +27,8 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
+        <Route path="/account-deletion" element={<AccountDeletion />} />
+        <Route path="/data-deletion" element={<DataDeletion />} />
         <Route path="*" element={<Landing />} />
       </Routes>
     </BrowserRouter>
