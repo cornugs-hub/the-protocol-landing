@@ -1,4 +1,5 @@
 import { useRef } from "react"
+import { Link } from "react-router-dom"
 import { Icon } from "./Icon"
 
 export function Hero() {
@@ -37,24 +38,26 @@ export function Hero() {
             disciplina. Diseñado para quienes no aceptan la mediocridad.
           </p>
           <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center md:justify-start">
-            <a
-              href="#descargar"
+            <Link
+              to="/android-beta"
               className="inline-flex items-center justify-center gap-3 bg-primary-gradient px-8 py-4 rounded-full font-headline font-bold text-white shadow-xl shadow-purple-700/30 hover:scale-105 transition-transform text-sm sm:text-base sm:min-w-[260px]"
             >
               <AndroidIcon />
-              Descargar para Android
-            </a>
+              Unirme a Beta Android
+            </Link>
             <a
-              href="#descargar"
+              href="https://testflight.apple.com/join/8xVm9pBu"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 border border-white/15 bg-white/5 backdrop-blur px-8 py-4 rounded-full font-headline font-bold text-white hover:border-brand-primary/50 hover:bg-white/10 transition-all text-sm sm:text-base sm:min-w-[260px]"
             >
               <AppleIcon />
-              Descargar para iOS
+              Unirme en TestFlight
             </a>
           </div>
           <div className="pt-4 sm:pt-8 flex flex-wrap items-center gap-4 justify-center md:justify-start">
             <span className="text-[10px] sm:text-xs font-bold tracking-widest uppercase text-brand-primarySoft bg-brand-primary/10 px-3 py-1.5 rounded-full border border-brand-primary/30">
-              v0.0.1 Beta
+              Beta
             </span>
           </div>
         </div>

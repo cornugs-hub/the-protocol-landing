@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>The Protocol · Forja tu protocolo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                void: "#02030A",
+                deep: "#0A0D1F",
+                deeper: "#070819",
+                primary: "#6C5CE7",
+                primarySoft: "#8E7EF2",
+                primaryDark: "#5641D4",
+                gold: "#FFD86E",
+                /* Pillar colors — calibrated to match the live app */
+                body: "#FF4757",     /* Cuerpo  · red */
+                mind: "#22C5E8",     /* Mente   · cyan */
+                spirit: "#A06CFF",   /* Espíritu · purple */
+                fuel: "#2ED573",     /* Combustible · green */
+                /* legacy alias */
+                aura: "#A06CFF",
+              },
+            },
+            fontFamily: {
+              headline: ['"Space Grotesk"', "sans-serif"],
+              display: ['"Space Grotesk"', "sans-serif"],
+              body: ['"Inter"', "sans-serif"],
+              mono: ['"JetBrains Mono"', "monospace"],
+            },
+            letterSpacing: {
+              tightest: "-0.05em",
+              brutalTight: "-0.055em",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background-color: #02030a;
+        color: rgb(226 232 240);
+        font-family: "Inter", sans-serif;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      *::selection {
+        background-color: #6c5ce7;
+        color: #ffffff;
+      }
+
+      /* Headline font weight — Space Grotesk caps at 700, simulate 900 via stroke */
+      .font-black-x {
+        font-weight: 700;
+        -webkit-text-stroke: 0.6px currentColor;
+      }
+
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+      .ms-fill {
+        font-variation-settings: "FILL" 1, "wght" 500, "GRAD" 0, "opsz" 24;
+      }
+
+      /* Grid bg variants */
+      .bg-grid-fine {
+        background-image:
+          linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+        background-size: 56px 56px;
+      }
+      .bg-grid-coarse {
+        background-image:
+          linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+        background-size: 96px 96px;
+      }
+
+      .text-gradient-primary {
+        background-image: linear-gradient(135deg, #b1a5f6 0%, #8e7ef2 35%, #6c5ce7 75%, #5641d4 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+      }
+      .text-gradient-fade {
+        background-image: linear-gradient(180deg, #ffffff 0%, #ffffff 55%, rgba(255, 255, 255, 0.45) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+      }
+      .bg-primary-gradient {
+        background: linear-gradient(135deg, #7a6aee 0%, #6c5ce7 55%, #5641d4 100%);
+      }
+      .primary-halo {
+        background: radial-gradient(circle, rgba(108, 92, 231, 0.4) 0%, transparent 60%);
+      }
+      .glow-primary {
+        box-shadow: 0 0 30px rgba(108, 92, 231, 0.35), 0 10px 40px -10px rgba(108, 92, 231, 0.4);
+      }
+      .glow-soft {
+        box-shadow: 0 0 24px rgba(108, 92, 231, 0.18), 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+      }
+      .ring-hairline {
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+      }
+      .text-glow-primary {
+        text-shadow: 0 0 28px rgba(108, 92, 231, 0.45);
+      }
+
+      /* Vertical scan line */
+      .scanline::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.012) 0px,
+          rgba(255, 255, 255, 0.012) 1px,
+          transparent 1px,
+          transparent 3px
+        );
+        pointer-events: none;
+      }
+
+      /* Marquee */
+      @keyframes marquee {
+        from { transform: translateX(0); }
+        to   { transform: translateX(-50%); }
+      }
+      .marquee-track {
+        animation: marquee 38s linear infinite;
+      }
+
+      /* Pulse dot */
+      @keyframes pulse-dot {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(46, 213, 115, 0.5); }
+        50%      { box-shadow: 0 0 0 8px rgba(46, 213, 115, 0); }
+      }
+      .pulse-dot { animation: pulse-dot 2.2s ease-out infinite; }
+
+      /* Phone screen fade */
+      @keyframes screen-in {
+        from { opacity: 0; transform: translateY(8px) scale(0.99); }
+        to   { opacity: 1; transform: translateY(0) scale(1); }
+      }
+      .screen-in {
+        animation: screen-in 600ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+      }
+
+      /* Subtle floating */
+      @keyframes float-y {
+        0%, 100% { transform: translateY(0); }
+        50%      { transform: translateY(-8px); }
+      }
+      .float-y { animation: float-y 6s ease-in-out infinite; }
+
+      /* Hide native scrollbars for in-card scrolls */
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { scrollbar-width: none; }
+
+      /* Reveal on scroll */
+      .reveal {
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 700ms cubic-bezier(0.2, 0.7, 0.2, 1), transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+      }
+      .reveal.is-in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Number ticker */
+      .tabular { font-variant-numeric: tabular-nums; }
+
+      /* Phone shell */
+      .phone-shell {
+        border-radius: 44px;
+        background: linear-gradient(180deg, #15172a 0%, #0a0c1d 50%, #0a0c1d 100%);
+        box-shadow:
+          0 0 0 1px rgba(255, 255, 255, 0.06),
+          0 0 0 6px #0d1023,
+          0 0 0 7px rgba(255, 255, 255, 0.06),
+          0 40px 80px -20px rgba(108, 92, 231, 0.35),
+          0 30px 60px -30px rgba(0, 0, 0, 0.9);
+      }
+
+      /* Card outline */
+      .card-outline {
+        border: 1px solid rgba(255, 255, 255, 0.07);
+      }
+      .card-outline-hover:hover {
+        border-color: rgba(108, 92, 231, 0.35);
+      }
+
+      /* Operator code monospaced label */
+      .op-label {
+        font-family: "JetBrains Mono", monospace;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-size: 10px;
+        color: rgba(180, 178, 220, 0.55);
+      }
+
+      /* Buttons */
+      .btn-primary {
+        background: linear-gradient(135deg, #7a6aee 0%, #6c5ce7 55%, #5641d4 100%);
+        box-shadow: 0 14px 30px -10px rgba(108, 92, 231, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+        transition: transform 200ms ease, box-shadow 200ms ease;
+      }
+      .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 20px 40px -10px rgba(108, 92, 231, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+      }
+      .btn-ghost {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 200ms ease;
+      }
+      .btn-ghost:hover {
+        border-color: rgba(108, 92, 231, 0.45);
+        background: rgba(255, 255, 255, 0.06);
+      }
+    </style>
+  </head>
+
+  <body class="bg-brand-void text-slate-200 font-body">
+    <div id="root"></div>
+
+    <!-- React + Babel -->
+    <script
+      src="https://unpkg.com/react@18.3.1/umd/react.development.js"
+      integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"
+      integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"
+      integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y"
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="text/babel" src="components/primitives.jsx" data-presets="react"></script>
+    <script type="text/babel" src="components/phone.jsx" data-presets="react"></script>
+    <script type="text/babel" src="components/sections.jsx" data-presets="react"></script>
+    <script type="text/babel" src="app.jsx" data-presets="react"></script>
+  </body>
+</html>

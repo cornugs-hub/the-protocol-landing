@@ -5,6 +5,7 @@ import { Privacy } from "./pages/Privacy"
 import { Terms } from "./pages/Terms"
 import { AccountDeletion } from "./pages/AccountDeletion"
 import { DataDeletion } from "./pages/DataDeletion"
+import { AndroidBeta } from "./pages/AndroidBeta"
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -29,6 +30,7 @@ function App() {
         <Route path="/terms" element={<Terms />} />
         <Route path="/account-deletion" element={<AccountDeletion />} />
         <Route path="/data-deletion" element={<DataDeletion />} />
+        <Route path="/android-beta" element={<AndroidBeta />} />
         <Route path="*" element={<Landing />} />
       </Routes>
     </BrowserRouter>

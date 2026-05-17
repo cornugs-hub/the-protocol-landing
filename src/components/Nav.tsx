@@ -19,7 +19,6 @@ export function Nav() {
     { href: "#pilares", label: "Pilares" },
     { href: "#proceso", label: "Proceso" },
     { href: "#codigo", label: "Código" },
-    { href: "#descargar", label: "Descargar" },
   ]
 
   return (
