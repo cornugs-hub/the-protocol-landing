@@ -1,5 +1,5 @@
+import { useEffect, useRef } from "react"
 import { Icon } from "./Icon"
-import { Reveal } from "./Reveal"
 import { SectionHeader } from "./SectionHeader"
 import { PILLAR_TINTS, PillarMiniPhone, type PillarKey } from "./PhoneStack"
 
@@ -49,28 +49,66 @@ const PILLARS: PillarData[] = [
 
 export function Pillars() {
   return (
-    <section id="sistema" className="relative min-h-[100svh] flex items-start py-16 sm:py-20 lg:py-24 overflow-hidden">
+    <section id="sistema" className="relative min-h-[100svh] flex items-start py-12 sm:py-16 overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-primary/10 blur-[140px] pointer-events-none" />
-      <div className="w-full max-w-7xl mx-auto px-5 sm:px-8">
-        <SectionHeader
-          eyebrow="El sistema"
-          title={
-            <>
-              Cuatro pilares.{" "}
-              <span className="text-gradient-primary">Un protocolo.</span>
-            </>
-          }
-          lead="Cada pilar es un módulo independiente. Cada módulo te transforma. Juntos, te forjan completo."
-        />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
-          {PILLARS.map((p, i) => (
-            <Reveal key={p.id} delay={i * 80}>
-              <PillarCard {...p} />
-            </Reveal>
-          ))}
+      <div className="w-full">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8">
+          <SectionHeader
+            eyebrow="El sistema"
+            title={
+              <>
+                Cuatro pilares.{" "}
+                <span className="text-gradient-primary">Un protocolo.</span>
+              </>
+            }
+            lead="Cada pilar es un módulo independiente. Cada módulo te transforma. Juntos, te forjan completo."
+          />
         </div>
+        <PillarsCarousel />
       </div>
     </section>
+  )
+}
+
+function PillarsCarousel() {
+  const trackRef = useRef<HTMLDivElement | null>(null)
+  const offsetRef = useRef(0)
+
+  useEffect(() => {
+    const el = trackRef.current
+    if (!el) return
+    let raf = 0
+    let last = performance.now()
+    const SPEED = 18
+    const step = (now: number) => {
+      const dt = (now - last) / 1000
+      last = now
+      const half = el.scrollWidth / 2
+      if (half > 0) {
+        offsetRef.current += SPEED * dt
+        if (offsetRef.current >= half) offsetRef.current -= half
+        el.style.transform = `translateX(${-offsetRef.current}px)`
+      }
+      raf = requestAnimationFrame(step)
+    }
+    raf = requestAnimationFrame(step)
+    return () => cancelAnimationFrame(raf)
+  }, [])
+
+  return (
+    <div className="w-full overflow-hidden pointer-events-none mt-8">
+      <div ref={trackRef} className="flex gap-5 sm:gap-6 pb-2 w-max will-change-transform">
+        {[...PILLARS, ...PILLARS].map((p, i) => (
+          <div
+            key={`${p.id}-${i}`}
+            className="shrink-0 w-[88vw] sm:w-[520px] lg:w-[560px]"
+            style={{ maxWidth: "560px" }}
+          >
+            <PillarCard {...p} />
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }
 

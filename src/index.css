@@ -24,7 +24,6 @@
   section#versus,
   section#proceso,
   section#operadores,
-  section#codigo,
   section#descargar {
     scroll-margin-top: -20px;
   }
@@ -33,9 +32,16 @@
     section#versus,
     section#proceso,
     section#operadores,
-    section#codigo,
     section#descargar {
       scroll-margin-top: -40px;
+    }
+  }
+  section#codigo {
+    scroll-margin-top: -40px;
+  }
+  @media (min-width: 640px) {
+    section#codigo {
+      scroll-margin-top: -70px;
     }
   }
   body {
