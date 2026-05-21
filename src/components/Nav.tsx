@@ -82,11 +82,11 @@ export function Nav() {
       </nav>
 
       <div
-        className={`lg:hidden overflow-hidden transition-[max-height,opacity] duration-300 border-t border-white/[0.06] ${
-          open ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0"
+        className={`lg:hidden absolute inset-x-0 top-full border-t border-white/[0.06] origin-top transform-gpu will-change-[transform,opacity] transition-[transform,opacity] duration-200 ease-out ${
+          open ? "scale-y-100 opacity-100 pointer-events-auto" : "scale-y-95 opacity-0 pointer-events-none"
         }`}
       >
-        <div className="px-5 py-6 space-y-1 bg-brand-void/95 backdrop-blur-xl">
+        <div className="px-5 py-6 space-y-1 bg-brand-void">
           {links.map((l) => (
             <a
               key={l.href}
