@@ -98,11 +98,11 @@ export function AndroidBeta() {
           </div>
 
           {/* Right — form */}
-          <div className="w-full max-w-md mx-auto lg:max-w-none lg:mx-0">
+          <div className="w-full lg:max-w-none">
             {(status === "idle" || status === "loading" || status === "error") && (
               <form
                 onSubmit={onSubmit}
-                className="bg-white/[0.02] border border-white/10 rounded-2xl p-6 sm:p-8 backdrop-blur space-y-5"
+                className="sm:bg-white/[0.02] sm:border sm:border-white/10 sm:rounded-2xl sm:p-8 sm:backdrop-blur space-y-5"
               >
                 <div>
                   <label
@@ -119,7 +119,7 @@ export function AndroidBeta() {
                     value={nombre}
                     onChange={(e) => setNombre(e.target.value)}
                     disabled={status === "loading"}
-                    className="w-full bg-brand-void border border-white/10 rounded-xl px-4 py-3 text-white text-sm sm:text-base placeholder-slate-600 focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition disabled:opacity-50"
+                    className="w-full bg-brand-void border border-white/10 rounded-lg px-4 py-3 text-white text-sm sm:text-base placeholder-slate-600 focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition disabled:opacity-50"
                     placeholder="Tu nombre"
                   />
                 </div>
@@ -140,7 +140,7 @@ export function AndroidBeta() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     disabled={status === "loading"}
-                    className="w-full bg-brand-void border border-white/10 rounded-xl px-4 py-3 text-white text-sm sm:text-base placeholder-slate-600 focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition disabled:opacity-50"
+                    className="w-full bg-brand-void border border-white/10 rounded-lg px-4 py-3 text-white text-sm sm:text-base placeholder-slate-600 focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition disabled:opacity-50"
                     placeholder="tu@correo.com"
                   />
                   <p className="text-[11px] text-slate-500 mt-2 leading-relaxed">
@@ -157,7 +157,7 @@ export function AndroidBeta() {
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="w-full inline-flex items-center justify-center gap-3 bg-primary-gradient text-white px-6 py-3.5 rounded-full font-headline font-bold text-sm sm:text-base shadow-xl shadow-purple-700/30 hover:scale-[1.02] active:scale-[0.98] transition-transform disabled:opacity-60 disabled:hover:scale-100"
+                  className="w-full inline-flex items-center justify-center gap-3 bg-primary-gradient text-white px-6 py-3.5 rounded-lg font-headline font-bold text-sm sm:text-base shadow-xl shadow-purple-700/30 hover:scale-[1.02] active:scale-[0.98] transition-transform disabled:opacity-60 disabled:hover:scale-100"
                 >
                   {status === "loading" ? (
                     <>
