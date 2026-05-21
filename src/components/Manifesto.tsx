@@ -25,7 +25,7 @@ export function Manifesto() {
         </div>
 
         <div className="sm:hidden relative flex-1 min-h-[260px] mt-8 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] rounded-full bg-brand-primary/10 blur-[110px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] rounded-full bg-brand-primary/10 blur-[60px]" />
           <div className="absolute inset-0 flex justify-center manifesto-rain-mask">
             <ManifestoRain items={BANNED_ALL} />
           </div>
@@ -51,11 +51,20 @@ const BANNED_ALL = [
 function ManifestoRain({ items }: { items: string[] }) {
   const trackRef = useRef<HTMLDivElement | null>(null)
   const firstSetRef = useRef<HTMLDivElement | null>(null)
+  const containerRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     const track = trackRef.current
     const firstSet = firstSetRef.current
-    if (!track || !firstSet) return
+    const container = containerRef.current
+    if (!track || !firstSet || !container) return
+
+    let visible = true
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach((e) => (visible = e.isIntersecting)),
+      { threshold: 0.01 },
+    )
+    obs.observe(container)
 
     let raf = 0
     let last = performance.now()
@@ -65,20 +74,25 @@ function ManifestoRain({ items }: { items: string[] }) {
     const step = (now: number) => {
       const dt = (now - last) / 1000
       last = now
-      const cycleHeight = firstSet.offsetHeight
-      if (cycleHeight > 0) {
-        offset += SPEED * dt
-        if (offset >= cycleHeight) offset -= cycleHeight
-        track.style.transform = `translate3d(0, ${-offset}px, 0)`
+      if (visible) {
+        const cycleHeight = firstSet.offsetHeight
+        if (cycleHeight > 0) {
+          offset += SPEED * dt
+          if (offset >= cycleHeight) offset -= cycleHeight
+          track.style.transform = `translate3d(0, ${-offset}px, 0)`
+        }
       }
       raf = requestAnimationFrame(step)
     }
     raf = requestAnimationFrame(step)
-    return () => cancelAnimationFrame(raf)
+    return () => {
+      cancelAnimationFrame(raf)
+      obs.disconnect()
+    }
   }, [])
 
   return (
-    <div className="relative w-full max-w-xs">
+    <div ref={containerRef} className="relative w-full max-w-xs">
       <div
         ref={trackRef}
         className="absolute inset-x-0 top-0 flex flex-col items-center will-change-transform"

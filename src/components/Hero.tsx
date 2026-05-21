@@ -11,8 +11,8 @@ export function Hero() {
     >
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-grid-fine opacity-60" />
-        <div className="absolute -top-32 left-1/4 -translate-x-1/2 w-[700px] h-[700px] bg-brand-primary/25 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-brand-primaryDark/15 rounded-full blur-[120px]" />
+        <div className="absolute -top-32 left-1/4 -translate-x-1/2 w-[400px] h-[400px] md:w-[700px] md:h-[700px] bg-brand-primary/25 rounded-full blur-[60px] md:blur-[120px]" />
+        <div className="absolute bottom-0 right-0 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-brand-primaryDark/15 rounded-full blur-[60px] md:blur-[120px]" />
         <div className="absolute inset-x-0 top-[60vh] h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 

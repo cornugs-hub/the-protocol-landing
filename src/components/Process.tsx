@@ -32,7 +32,7 @@ const STEPS: Step[] = [
 export function Process() {
   return (
     <section id="proceso" className="relative min-h-[100svh] flex items-start py-16 sm:py-20 lg:py-24 overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-brand-primary/10 blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[300px] md:w-[800px] md:h-[600px] bg-brand-primary/10 blur-[70px] md:blur-[140px] pointer-events-none" />
       <div className="w-full max-w-7xl mx-auto px-5 sm:px-8">
         <SectionHeader
           eyebrow="Proceso"

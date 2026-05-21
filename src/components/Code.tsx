@@ -18,7 +18,7 @@ const NO = [
 export function Code() {
   return (
     <section id="codigo" className="relative min-h-[100svh] flex items-start py-16 sm:py-20 lg:py-24 border-t border-white/[0.06] overflow-hidden">
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-primary/20 blur-[140px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-brand-primary/20 blur-[70px] md:blur-[140px] rounded-full pointer-events-none" />
       <div className="w-full max-w-7xl mx-auto px-5 sm:px-8 relative">
         <SectionHeader
           eyebrow="El código"
