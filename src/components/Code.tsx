@@ -1,13 +1,14 @@
 import { Icon } from "./Icon"
+import { SectionHeader } from "./SectionHeader"
 
-const yes = [
+const YES = [
   "Quieres un sistema, no más motivación vacía",
   "Disciplina sobre dopamina barata",
   "Seguimiento real, no impresiones",
-  "Comunidad de personas que ejecutan",
+  "Pides exigencia, no aplausos",
 ]
 
-const no = [
+const NO = [
   "Buscas una app que te haga feliz por defecto",
   "Quieres algo fácil",
   "No piensas hacer el trabajo",
@@ -16,61 +17,62 @@ const no = [
 
 export function Code() {
   return (
-    <section
-      id="codigo"
-      className="py-16 sm:py-20 md:py-24 px-5 sm:px-6 border-y border-white/5 relative overflow-hidden"
-    >
-      <div className="absolute inset-0 opacity-20 pointer-events-none">
-        <div className="absolute top-0 right-0 w-72 h-72 sm:w-96 sm:h-96 bg-brand-primary/30 blur-[100px] sm:blur-[120px] rounded-full" />
-      </div>
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-12 sm:mb-16 md:mb-20">
-          <span className="font-headline font-bold text-brand-primary tracking-[0.3em] text-[10px] sm:text-xs uppercase block mb-3 sm:mb-4">
-            EL CÓDIGO
-          </span>
-          <h2 className="font-headline font-black text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-white tracking-tighter leading-[1.05]">
-            No es para todos.
-          </h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10">
-          <div className="bg-brand-void p-6 sm:p-10 md:p-12 lg:p-16">
-            <h3 className="font-headline font-bold text-xl sm:text-2xl text-white mb-6 sm:mb-10 flex items-center gap-3">
-              <span className="w-6 sm:w-8 h-px bg-brand-primary" />
-              Es para ti si...
-            </h3>
-            <ul className="space-y-4 sm:space-y-6">
-              {yes.map((item) => (
-                <li key={item} className="flex items-start gap-3 sm:gap-4">
-                  <Icon
-                    name="check_circle"
-                    className="text-brand-primarySoft mt-0.5 sm:mt-1 shrink-0"
-                    fill
-                  />
-                  <span className="text-slate-300 text-sm sm:text-base md:text-lg font-medium leading-snug">
-                    {item}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="bg-slate-950/50 p-6 sm:p-10 md:p-12 lg:p-16">
-            <h3 className="font-headline font-bold text-xl sm:text-2xl text-slate-500 mb-6 sm:mb-10 flex items-center gap-3">
-              <span className="w-6 sm:w-8 h-px bg-slate-700" />
-              No es para ti si...
-            </h3>
-            <ul className="space-y-4 sm:space-y-6 opacity-70">
-              {no.map((item) => (
-                <li key={item} className="flex items-start gap-3 sm:gap-4">
-                  <Icon name="cancel" className="text-[#5C6489] mt-0.5 sm:mt-1 shrink-0" />
-                  <span className="text-slate-400 text-sm sm:text-base md:text-lg leading-snug">
-                    {item}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
+    <section id="codigo" className="relative min-h-[100svh] flex items-start py-16 sm:py-20 lg:py-24 border-t border-white/[0.06] overflow-hidden">
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-primary/20 blur-[140px] rounded-full pointer-events-none" />
+      <div className="w-full max-w-7xl mx-auto px-5 sm:px-8 relative">
+        <SectionHeader
+          eyebrow="El código"
+          title={
+            <>
+              No es para todos.{" "}
+              <br className="hidden sm:block" />
+              <span className="text-slate-500">Es para usuarios.</span>
+            </>
+          }
+        />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/[0.07] rounded-3xl overflow-hidden border border-white/[0.08]">
+          <CodePanel kind="yes" items={YES} />
+          <CodePanel kind="no" items={NO} />
         </div>
       </div>
     </section>
+  )
+}
+
+function CodePanel({ kind, items }: { kind: "yes" | "no"; items: string[] }) {
+  const isYes = kind === "yes"
+  return (
+    <div className={`p-7 sm:p-12 md:p-14 ${isYes ? "bg-brand-void" : "bg-slate-950/60"} relative`}>
+      <div className="flex items-center gap-3 mb-8 sm:mb-10">
+        <span className={`w-8 h-px ${isYes ? "bg-brand-primary" : "bg-slate-700"}`} />
+        <h3
+          className={`font-headline font-bold text-[20px] sm:text-[22px] tracking-tight ${
+            isYes ? "text-white" : "text-slate-500"
+          }`}
+        >
+          {isYes ? "Es para ti si…" : "No es para ti si…"}
+        </h3>
+      </div>
+      <ul className="space-y-5">
+        {items.map((item) => (
+          <li key={item} className="flex items-start gap-3.5">
+            <Icon
+              name={isYes ? "check_circle" : "cancel"}
+              fill={isYes}
+              className={`mt-0.5 text-[22px] shrink-0 ${
+                isYes ? "text-brand-primarySoft" : "text-slate-700"
+              }`}
+            />
+            <span
+              className={`text-[15px] sm:text-[17px] leading-snug ${
+                isYes ? "text-slate-200 font-medium" : "text-slate-500"
+              }`}
+            >
+              {item}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { useState, type FormEvent } from "react"
 import { Icon } from "../components/Icon"
+import { PageHeader } from "../components/PageHeader"
 
 const JOIN_BETA_URL =
   "https://us-central1-the-protocol-stage.cloudfunctions.net/joinAndroidBeta"
@@ -71,22 +72,9 @@ export function AndroidBeta() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(108,92,231,0.04)_1px,transparent_1px)] bg-[size:80px_80px] lg:bg-[size:100px_100px] opacity-40" />
       </div>
 
-      <header className="relative z-10 border-b border-white/5 px-5 sm:px-8 py-4 shrink-0">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link to="/" className="inline-flex items-center gap-2 group cursor-pointer">
-            <span className="text-lg sm:text-xl font-headline font-black tracking-tighter text-white group-hover:text-brand-primarySoft transition-colors">
-              THE PROTOCOL
-            </span>
-            <div className="w-1.5 h-1.5 rounded-full bg-brand-primary shadow-[0_0_8px_#6C5CE7]" />
-          </Link>
-          <Link
-            to="/"
-            className="text-slate-400 hover:text-white text-[11px] sm:text-xs tracking-widest uppercase font-headline font-bold transition-colors"
-          >
-            ← Inicio
-          </Link>
-        </div>
-      </header>
+      <div className="relative z-10 shrink-0">
+        <PageHeader />
+      </div>
 
       <main className="relative z-10 flex-1 flex items-center min-h-0 overflow-y-auto lg:overflow-hidden">
         <div className="w-full max-w-7xl mx-auto px-5 sm:px-8 py-6 lg:py-0 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -94,7 +82,7 @@ export function AndroidBeta() {
           <div className="space-y-6 lg:space-y-8 text-center lg:text-left">
             <span className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold tracking-widest uppercase text-brand-primarySoft bg-brand-primary/10 px-3 py-1.5 rounded-full border border-brand-primary/30">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-primary animate-pulse" />
-              Beta Cerrada · Android
+              Beta · Android
             </span>
             <h1 className="font-headline font-black text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white tracking-tight leading-[0.95]">
               Únete a la{" "}
@@ -105,8 +93,7 @@ export function AndroidBeta() {
             </p>
             <ul className="space-y-3 max-w-md mx-auto lg:mx-0 text-left">
               <Bullet text="Acceso anticipado a todas las funciones" />
-              <Bullet text="Reportes directos al equipo" />
-              <Bullet text="Aprobación en menos de 24 horas" />
+              <Bullet text="Acceso en menos de 24 horas" />
             </ul>
           </div>
 
