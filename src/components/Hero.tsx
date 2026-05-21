@@ -36,7 +36,7 @@ export function Hero() {
           <Reveal delay={240}>
             <div className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center md:justify-start">
               <PrimaryCTA to="/android-beta" icon={<AndroidIcon />}>
-                Descargar
+                Unirme a Beta Android
               </PrimaryCTA>
               <GhostCTA
                 href="https://testflight.apple.com/join/8xVm9pBu"
