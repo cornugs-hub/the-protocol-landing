@@ -24,9 +24,16 @@ export function Footer() {
           <FooterAnchor href="mailto:cornugs@gmail.com">Contacto</FooterAnchor>
         </FooterCol>
       </div>
-      <div className="mt-12 pt-6 border-t border-white/[0.04] max-w-7xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row justify-between items-center gap-3">
-        <p className="op-label">© 2026 Cornugs · Todos los derechos reservados</p>
-        <p className="op-label">activateprotocol.com</p>
+      <div className="mt-12 pt-6 border-t border-white/[0.04] max-w-7xl mx-auto px-5 sm:px-8 flex flex-col md:flex-row md:justify-between items-start md:items-center gap-2 text-slate-500 text-[11px] sm:text-[12px]">
+        <p className="font-medium tracking-wide">
+          © 2026 Cornugs · Todos los derechos reservados
+        </p>
+        <a
+          href="https://activateprotocol.com"
+          className="font-mono tracking-wider hover:text-white transition-colors"
+        >
+          activateprotocol.com
+        </a>
       </div>
     </footer>
   )

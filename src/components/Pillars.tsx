@@ -64,7 +64,14 @@ export function Pillars() {
             lead="Cada pilar es un módulo independiente. Cada módulo te transforma. Juntos, te forjan completo."
           />
         </div>
-        <PillarsCarousel />
+        <div className="md:hidden max-w-7xl mx-auto px-5 mt-8 grid grid-cols-1 gap-5">
+          {PILLARS.map((p) => (
+            <PillarCard key={p.id} {...p} />
+          ))}
+        </div>
+        <div className="hidden md:block">
+          <PillarsCarousel />
+        </div>
       </div>
     </section>
   )

@@ -30,13 +30,13 @@ export function Operators() {
     <section id="operadores" className="relative min-h-[100svh] flex items-start py-16 sm:py-20 lg:py-24 border-y border-white/[0.06] overflow-hidden">
       <div className="absolute inset-0 bg-grid-coarse opacity-30" />
       <div className="relative w-full max-w-7xl mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-8 lg:gap-12 items-center">
-        <div>
+        <div className="text-center lg:text-left">
           <Eyebrow color="primary">Beta en ejecución</Eyebrow>
           <h2 className="mt-5 font-headline font-black-x text-white tracking-brutalTight leading-[0.98] text-[32px] sm:text-[44px] md:text-[52px]">
             Esto se ejecuta{" "}
             <span className="text-gradient-primary">ahora mismo.</span>
           </h2>
-          <ul className="mt-8 space-y-4 max-w-md">
+          <ul className="mt-8 space-y-4 max-w-md mx-auto lg:mx-0 text-left">
             <InfoItem
               title="Misiones diarias reales"
               body="Cada usuario recibe un protocolo calibrado. Sin casillas vacías: misiones que exigen ejecución."
@@ -51,7 +51,7 @@ export function Operators() {
             />
           </ul>
 
-          <div className="mt-8 flex flex-wrap gap-3 max-w-md">
+          <div className="mt-8 flex flex-wrap justify-center lg:justify-start gap-3 max-w-md mx-auto lg:mx-0">
             <Chip label="Beta activa" />
             <Chip label="Cupos limitados" />
           </div>

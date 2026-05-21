@@ -25,7 +25,7 @@ export function Versus() {
           lead="Las apps tradicionales te recompensan por aparecer. The Protocol te exige ejecutar. Compara."
         />
 
-        <div className="relative rounded-3xl overflow-hidden border border-white/[0.08]">
+        <div className="hidden md:block relative rounded-3xl overflow-hidden border border-white/[0.08]">
           <div className="grid grid-cols-2">
             <div className="bg-brand-primary/[0.08] px-3 sm:px-6 py-3 sm:py-4 relative border-r border-white/[0.06]">
               <p className="op-label mb-1" style={{ color: "rgba(142,126,242,0.9)" }}>
@@ -63,6 +63,45 @@ export function Versus() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        <div className="md:hidden grid grid-cols-1 gap-px bg-white/[0.07] rounded-3xl overflow-hidden border border-white/[0.08]">
+          <div className="p-6 bg-brand-primary/[0.06] relative">
+            <div className="flex items-center gap-3 mb-5">
+              <span className="w-8 h-px bg-brand-primary" />
+              <h3 className="font-headline font-bold text-[18px] tracking-tight text-white">
+                The Protocol
+              </h3>
+            </div>
+            <ul className="space-y-4">
+              {ROWS.map((r) => (
+                <li key={`y-${r.ours}`} className="flex items-start gap-3">
+                  <Icon name="check_circle" fill className="mt-0.5 text-[20px] shrink-0 text-brand-primarySoft" />
+                  <span className="text-[14px] leading-snug text-slate-100 font-medium">
+                    {r.ours}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="p-6 bg-slate-950/60 relative">
+            <div className="flex items-center gap-3 mb-5">
+              <span className="w-8 h-px bg-slate-700" />
+              <h3 className="font-headline font-bold text-[18px] tracking-tight text-slate-500">
+                Apps tradicionales
+              </h3>
+            </div>
+            <ul className="space-y-4">
+              {ROWS.map((r) => (
+                <li key={`n-${r.theirs}`} className="flex items-start gap-3">
+                  <Icon name="cancel" fill className="mt-0.5 text-[20px] shrink-0 text-slate-700" />
+                  <span className="text-[14px] leading-snug text-slate-500 line-through decoration-slate-700 decoration-1">
+                    {r.theirs}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

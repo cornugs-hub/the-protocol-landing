@@ -20,19 +20,45 @@
       scroll-margin-top: 72px;
     }
   }
+  section#manifiesto {
+    scroll-margin-top: -40px;
+  }
+  @media (min-width: 640px) {
+    section#manifiesto {
+      scroll-margin-top: 72px;
+    }
+  }
   section#sistema,
-  section#versus,
-  section#proceso,
-  section#operadores,
   section#descargar {
     scroll-margin-top: -20px;
   }
   @media (min-width: 640px) {
     section#sistema,
-    section#versus,
-    section#proceso,
-    section#operadores,
     section#descargar {
+      scroll-margin-top: -40px;
+    }
+  }
+  section#versus {
+    scroll-margin-top: -25px;
+  }
+  @media (min-width: 640px) {
+    section#versus {
+      scroll-margin-top: -40px;
+    }
+  }
+  section#operadores {
+    scroll-margin-top: -45px;
+  }
+  @media (min-width: 640px) {
+    section#operadores {
+      scroll-margin-top: -40px;
+    }
+  }
+  section#proceso {
+    scroll-margin-top: -40px;
+  }
+  @media (min-width: 640px) {
+    section#proceso {
       scroll-margin-top: -40px;
     }
   }
@@ -217,6 +243,122 @@
     50%      { transform: translateY(-8px); }
   }
   .float-y { animation: float-y 6s ease-in-out infinite; }
+
+  /* Manifesto mobile — vertical "rain" of banned phrases flanking "Ejecutar" core */
+  @keyframes manifesto-rain-up {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-50%); }
+  }
+  @keyframes manifesto-rain-down {
+    from { transform: translateY(-50%); }
+    to   { transform: translateY(0); }
+  }
+  .manifesto-rain-up {
+    animation: manifesto-rain-up 22s linear infinite;
+  }
+  .manifesto-rain-down {
+    animation: manifesto-rain-down 26s linear infinite;
+  }
+  .manifesto-rain-mask {
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, black 18%, black 82%, transparent 100%);
+            mask-image: linear-gradient(180deg, transparent 0%, black 18%, black 82%, transparent 100%);
+  }
+
+  /* Manifesto mobile — orbiting "ejecutar" core with banned satellites */
+  @keyframes manifesto-core-pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 40px -8px rgba(108,92,231,0.8); }
+    50%      { transform: translate(-50%, -50%) scale(1.06); box-shadow: 0 0 60px -4px rgba(108,92,231,1); }
+  }
+  .manifesto-core {
+    animation: manifesto-core-pulse 3.2s ease-in-out infinite;
+  }
+
+  @keyframes orbit-rotate-1 {
+    from { transform: translate(-50%, -50%) rotate(0deg) translateX(110px) rotate(0deg); }
+    to   { transform: translate(-50%, -50%) rotate(360deg) translateX(110px) rotate(-360deg); }
+  }
+  @keyframes orbit-rotate-2 {
+    from { transform: translate(-50%, -50%) rotate(60deg) translateX(140px) rotate(-60deg); }
+    to   { transform: translate(-50%, -50%) rotate(420deg) translateX(140px) rotate(-420deg); }
+  }
+  @keyframes orbit-rotate-3 {
+    from { transform: translate(-50%, -50%) rotate(120deg) translateX(95px) rotate(-120deg); }
+    to   { transform: translate(-50%, -50%) rotate(480deg) translateX(95px) rotate(-480deg); }
+  }
+  @keyframes orbit-rotate-4 {
+    from { transform: translate(-50%, -50%) rotate(180deg) translateX(135px) rotate(-180deg); }
+    to   { transform: translate(-50%, -50%) rotate(540deg) translateX(135px) rotate(-540deg); }
+  }
+  @keyframes orbit-rotate-5 {
+    from { transform: translate(-50%, -50%) rotate(240deg) translateX(100px) rotate(-240deg); }
+    to   { transform: translate(-50%, -50%) rotate(600deg) translateX(100px) rotate(-600deg); }
+  }
+  @keyframes orbit-rotate-6 {
+    from { transform: translate(-50%, -50%) rotate(300deg) translateX(125px) rotate(-300deg); }
+    to   { transform: translate(-50%, -50%) rotate(660deg) translateX(125px) rotate(-660deg); }
+  }
+  .orbit-1 { animation: orbit-rotate-1 18s linear infinite; }
+  .orbit-2 { animation: orbit-rotate-2 22s linear infinite reverse; }
+  .orbit-3 { animation: orbit-rotate-3 16s linear infinite; }
+  .orbit-4 { animation: orbit-rotate-4 24s linear infinite reverse; }
+  .orbit-5 { animation: orbit-rotate-5 19s linear infinite; }
+  .orbit-6 { animation: orbit-rotate-6 21s linear infinite reverse; }
+
+  /* Floating tags (manifesto mobile) — three variants for organic motion */
+  @keyframes float-tag-a {
+    0%, 100% {
+      transform: translate3d(0, 0, 0) rotate(var(--rot, 0deg)) scale(1);
+      opacity: 0.45;
+    }
+    25% {
+      transform: translate3d(10px, -16px, 0) rotate(calc(var(--rot, 0deg) + 2deg)) scale(1.05);
+      opacity: 0.95;
+    }
+    50% {
+      transform: translate3d(-6px, -22px, 0) rotate(calc(var(--rot, 0deg) - 3deg)) scale(0.96);
+      opacity: 0.7;
+    }
+    75% {
+      transform: translate3d(-14px, -10px, 0) rotate(calc(var(--rot, 0deg) + 1deg)) scale(1.02);
+      opacity: 0.88;
+    }
+  }
+  @keyframes float-tag-b {
+    0%, 100% {
+      transform: translate3d(0, 0, 0) rotate(var(--rot, 0deg)) scale(0.98);
+      opacity: 0.5;
+    }
+    30% {
+      transform: translate3d(-12px, 10px, 0) rotate(calc(var(--rot, 0deg) - 4deg)) scale(1.04);
+      opacity: 0.9;
+    }
+    60% {
+      transform: translate3d(8px, 18px, 0) rotate(calc(var(--rot, 0deg) + 3deg)) scale(0.95);
+      opacity: 0.65;
+    }
+    85% {
+      transform: translate3d(14px, 6px, 0) rotate(calc(var(--rot, 0deg) - 1deg)) scale(1);
+      opacity: 0.82;
+    }
+  }
+  @keyframes float-tag-c {
+    0%, 100% {
+      transform: translate3d(0, 0, 0) rotate(var(--rot, 0deg)) scale(1);
+      opacity: 0.4;
+    }
+    20% {
+      transform: translate3d(16px, -8px, 0) rotate(calc(var(--rot, 0deg) + 4deg)) scale(0.94);
+      opacity: 0.78;
+    }
+    45% {
+      transform: translate3d(20px, 14px, 0) rotate(calc(var(--rot, 0deg) - 2deg)) scale(1.08);
+      opacity: 1;
+    }
+    70% {
+      transform: translate3d(-10px, 8px, 0) rotate(calc(var(--rot, 0deg) + 3deg)) scale(0.97);
+      opacity: 0.6;
+    }
+  }
 
   /* Reveal on scroll */
   .reveal {

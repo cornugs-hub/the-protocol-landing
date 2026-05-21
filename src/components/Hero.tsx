@@ -17,7 +17,7 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 w-full grid grid-cols-1 md:grid-cols-[1.1fr_1fr] lg:grid-cols-[1.05fr_1fr] gap-8 md:gap-10 lg:gap-12 items-center">
-        <div className="space-y-5 sm:space-y-6 max-w-2xl">
+        <div className="space-y-5 sm:space-y-6 max-w-2xl text-center md:text-left">
           <Reveal>
             <Eyebrow color="primary">Beta · Acceso anticipado</Eyebrow>
           </Reveal>
@@ -34,7 +34,7 @@ export function Hero() {
             </p>
           </Reveal>
           <Reveal delay={240}>
-            <div className="flex flex-col sm:flex-row flex-wrap gap-3">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center md:justify-start">
               <PrimaryCTA to="/android-beta" icon={<AndroidIcon />}>
                 Unirme a Beta Android
               </PrimaryCTA>
@@ -50,7 +50,7 @@ export function Hero() {
 
           <Reveal delay={320}>
             <div className="pt-4 border-t border-white/[0.06]">
-              <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-5 gap-y-3">
                 <TrustChip label="Beta activa" />
                 <TrustChip label="Cupos limitados" />
               </div>
