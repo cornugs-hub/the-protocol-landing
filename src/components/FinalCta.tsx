@@ -17,14 +17,14 @@ export function FinalCta() {
         </p>
         <div className="mt-10 flex flex-col sm:flex-row flex-wrap gap-3 justify-center">
           <PrimaryCTA to="/android-beta" icon={<AndroidIcon />}>
-            Unirme a Beta Android
+            Descargar
           </PrimaryCTA>
           <GhostCTA
             href="https://testflight.apple.com/join/8xVm9pBu"
             external
             icon={<AppleIcon />}
           >
-            Unirme en TestFlight
+            Unirme a Beta Apple
           </GhostCTA>
         </div>
 
