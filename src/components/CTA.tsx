@@ -1,6 +1,11 @@
 import type { ReactNode } from "react"
 import { Link } from "react-router-dom"
 
+export const PLAY_STORE_URL =
+  "https://play.google.com/store/apps/details?id=com.cornugs.theprotocolapp"
+export const APP_STORE_URL =
+  "https://apps.apple.com/mx/app/the-protocol/id6767892029"
+
 interface CTAProps {
   href?: string
   to?: string
@@ -11,7 +16,7 @@ interface CTAProps {
   className?: string
 }
 
-export function PrimaryCTA({ href, to, onClick, children, icon, className = "" }: CTAProps) {
+export function PrimaryCTA({ href, to, onClick, children, icon, external = false, className = "" }: CTAProps) {
   const inner = (
     <>
       {icon ? <span className="shrink-0">{icon}</span> : null}
@@ -29,7 +34,12 @@ export function PrimaryCTA({ href, to, onClick, children, icon, className = "" }
   }
   if (href) {
     return (
-      <a href={href} className={cls} onClick={onClick}>
+      <a
+        href={href}
+        className={cls}
+        onClick={onClick}
+        {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      >
         {inner}
       </a>
     )

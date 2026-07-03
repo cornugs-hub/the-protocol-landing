@@ -1,6 +1,6 @@
 import { Eyebrow } from "./Eyebrow"
 import { Reveal } from "./Reveal"
-import { PrimaryCTA, GhostCTA, AndroidIcon, AppleIcon } from "./CTA"
+import { PrimaryCTA, GhostCTA, AndroidIcon, AppleIcon, PLAY_STORE_URL, APP_STORE_URL } from "./CTA"
 import { PhoneStack } from "./PhoneStack"
 
 export function Hero() {
@@ -19,7 +19,7 @@ export function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 w-full grid grid-cols-1 md:grid-cols-[1.1fr_1fr] lg:grid-cols-[1.05fr_1fr] gap-8 md:gap-10 lg:gap-12 items-center">
         <div className="space-y-5 sm:space-y-6 max-w-2xl text-center md:text-left">
           <Reveal>
-            <Eyebrow color="primary">Beta · Acceso anticipado</Eyebrow>
+            <Eyebrow color="primary">Ya disponible · v1.0.0</Eyebrow>
           </Reveal>
           <Reveal delay={80}>
             <h1 className="font-headline font-black-x text-white tracking-brutalTight leading-[0.9] text-[40px] sm:text-[56px] md:text-[64px] lg:text-[88px]">
@@ -35,15 +35,11 @@ export function Hero() {
           </Reveal>
           <Reveal delay={240}>
             <div className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center md:justify-start">
-              <PrimaryCTA to="/android-beta" icon={<AndroidIcon />}>
-                Unirme a Beta Android
+              <PrimaryCTA href={PLAY_STORE_URL} external icon={<AndroidIcon />}>
+                Descargar en Android
               </PrimaryCTA>
-              <GhostCTA
-                href="https://testflight.apple.com/join/8xVm9pBu"
-                external
-                icon={<AppleIcon />}
-              >
-                Unirme a Beta Apple
+              <GhostCTA href={APP_STORE_URL} external icon={<AppleIcon />}>
+                Descargar en Apple
               </GhostCTA>
             </div>
           </Reveal>
@@ -51,8 +47,8 @@ export function Hero() {
           <Reveal delay={320}>
             <div className="pt-4 border-t border-white/[0.06]">
               <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-5 gap-y-3">
-                <TrustChip label="Beta activa" />
-                <TrustChip label="Cupos limitados" />
+                <TrustChip label="Disponible en Google Play" />
+                <TrustChip label="Disponible en App Store" />
               </div>
             </div>
           </Reveal>

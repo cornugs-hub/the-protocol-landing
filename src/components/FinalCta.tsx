@@ -1,5 +1,5 @@
 import { Eyebrow } from "./Eyebrow"
-import { PrimaryCTA, GhostCTA, AndroidIcon, AppleIcon } from "./CTA"
+import { PrimaryCTA, GhostCTA, AndroidIcon, AppleIcon, PLAY_STORE_URL, APP_STORE_URL } from "./CTA"
 
 export function FinalCta() {
   return (
@@ -13,18 +13,14 @@ export function FinalCta() {
           <span className="text-gradient-primary">Se ejecuta.</span>
         </h2>
         <p className="mt-6 op-label">
-          Beta activa · Cupos limitados
+          Ya disponible · v1.0.0
         </p>
         <div className="mt-10 flex flex-col sm:flex-row flex-wrap gap-3 justify-center">
-          <PrimaryCTA to="/android-beta" icon={<AndroidIcon />}>
-            Unirme a Beta Android
+          <PrimaryCTA href={PLAY_STORE_URL} external icon={<AndroidIcon />}>
+            Descargar en Android
           </PrimaryCTA>
-          <GhostCTA
-            href="https://testflight.apple.com/join/8xVm9pBu"
-            external
-            icon={<AppleIcon />}
-          >
-            Unirme a Beta Apple
+          <GhostCTA href={APP_STORE_URL} external icon={<AppleIcon />}>
+            Descargar en Apple
           </GhostCTA>
         </div>
 

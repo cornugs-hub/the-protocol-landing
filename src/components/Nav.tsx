@@ -61,7 +61,7 @@ export function Nav() {
               <span className="w-1.5 h-1.5 rounded-full bg-brand-fuel pulse-dot" />
             </span>
             <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-slate-400">
-              <span className="text-white">Beta · Activa</span>
+              <span className="text-white">v1.0.0 · En vivo</span>
             </span>
           </span>
           <a
