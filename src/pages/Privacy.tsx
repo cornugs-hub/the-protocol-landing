@@ -9,7 +9,7 @@ export function Privacy() {
   return (
     <LegalLayout
       title={lang === "es" ? "Política de Privacidad" : "Privacy Policy"}
-      lastUpdated={lang === "es" ? "3 de mayo de 2026" : "May 3, 2026"}
+      lastUpdated={lang === "es" ? "20 de julio de 2026" : "July 20, 2026"}
     >
       <LangSwitch lang={lang} onChange={setLang} />
       {lang === "es" ? <PrivacyES /> : <PrivacyEN />}
@@ -68,11 +68,20 @@ function PrivacyES() {
         <li>Configuración personalizada y preferencias</li>
       </ul>
 
+      <H3>Datos de salud (Apple Salud / Health Connect)</H3>
+      <p>Solo si conectas la app con Apple Salud (iOS) o Health Connect (Android) y con tu permiso explícito:</p>
+      <ul className="list-disc pl-5 space-y-1.5">
+        <li>Calorías activas y totales, y pasos</li>
+        <li>Frecuencia cardíaca y frecuencia cardíaca en reposo</li>
+        <li>Sesiones de entrenamiento/ejercicio y distancia (de tu reloj u otras apps)</li>
+      </ul>
+
       <H3>Permisos del dispositivo</H3>
       <ul className="list-disc pl-5 space-y-1.5">
         <li><strong className="text-slate-300">Cámara:</strong> para escanear códigos de barras de alimentos, OCR de etiquetas nutricionales y fotos de ejercicios personalizados</li>
         <li><strong className="text-slate-300">Almacenamiento / Galería:</strong> para seleccionar imágenes</li>
         <li><strong className="text-slate-300">Mantener pantalla activa:</strong> durante sesiones de meditación</li>
+        <li><strong className="text-slate-300">Apple Salud / Health Connect:</strong> con tu permiso, para leer tus métricas de salud y (opcional) guardar tus entrenamientos</li>
       </ul>
 
       <H3>Datos técnicos</H3>
@@ -108,7 +117,41 @@ function PrivacyES() {
         <li><strong className="text-slate-300">ML Kit (Google):</strong> reconocimiento de texto en fotos (procesamiento local en tu dispositivo)</li>
       </ul>
 
-      <H2>5. Almacenamiento y seguridad</H2>
+      <H2>5. Datos de salud (Apple Salud / Health Connect)</H2>
+      <p>
+        La conexión con Apple Salud (iOS) o Health Connect (Android) es
+        totalmente opcional. Solo con tu permiso explícito accedemos a: calorías
+        activas y totales, pasos, frecuencia cardíaca y en reposo, sesiones de
+        entrenamiento/ejercicio y distancia. Si activas el guardado, también
+        escribimos los entrenamientos que registras en la app de vuelta en Apple
+        Salud / Health Connect (tipo de actividad, duración, calorías y
+        distancia).
+      </p>
+      <p>
+        <strong className="text-slate-300">Cómo los usamos:</strong> únicamente
+        para mostrar tus estadísticas del pilar Cuerpo y para que tus calorías,
+        pasos y entrenamientos cuenten en tus misiones y rachas. Se almacenan en
+        tu cuenta (Firebase) para sincronizar entre tus dispositivos y se
+        cachean localmente en tu dispositivo.
+      </p>
+      <p>
+        <strong className="text-slate-300">Lo que NUNCA hacemos:</strong> no
+        vendemos ni compartimos tus datos de salud con terceros, no los usamos
+        para publicidad, marketing ni con fines de segmentación, y no los usamos
+        para entrenar modelos de IA. Los datos obtenidos de Apple Salud
+        (HealthKit) y de Health Connect nunca se emplean para ninguno de esos
+        fines.
+      </p>
+      <p>
+        <strong className="text-slate-300">Control:</strong> puedes revocar el
+        acceso en cualquier momento desde Apple Salud (iOS) o Health Connect
+        (Android), o desde la configuración de la app; al hacerlo dejamos de leer
+        y escribir datos de salud. Nuestro manejo de estos datos cumple con los
+        requisitos de Apple HealthKit y con la Política de permisos de Health
+        Connect de Android (Google Play).
+      </p>
+
+      <H2>6. Almacenamiento y seguridad</H2>
       <p>
         Tus datos se almacenan en servidores de Google Cloud Platform (Firebase).
         Implementamos medidas de seguridad estándar: cifrado en tránsito (HTTPS),
@@ -116,7 +159,7 @@ function PrivacyES() {
         para acceder a tus datos.
       </p>
 
-      <H2>6. Tus derechos</H2>
+      <H2>7. Tus derechos</H2>
       <ul className="list-disc pl-5 space-y-1.5">
         <li><strong className="text-slate-300">Acceso:</strong> puedes ver todos tus datos en la app</li>
         <li><strong className="text-slate-300">Eliminación:</strong> puedes eliminar tu cuenta y todos los datos asociados desde Configuración → Eliminar cuenta, o escribiéndonos</li>
@@ -124,21 +167,21 @@ function PrivacyES() {
         <li><strong className="text-slate-300">Corrección:</strong> puedes editar cualquier dato directamente en la app</li>
       </ul>
 
-      <H2>7. Menores de edad</H2>
+      <H2>8. Menores de edad</H2>
       <p>
         The Protocol no está dirigido a menores de 13 años. No recolectamos
         conscientemente datos de menores de 13 años. Si descubrimos que se
         recolectaron, los eliminaremos.
       </p>
 
-      <H2>8. Cambios a esta política</H2>
+      <H2>9. Cambios a esta política</H2>
       <p>
         Podemos actualizar esta política. Notificaremos cambios significativos
         vía la app o por email. La fecha de "Última actualización" siempre
         refleja la versión vigente.
       </p>
 
-      <H2>9. Contacto</H2>
+      <H2>10. Contacto</H2>
       <p>
         Para preguntas sobre privacidad, escríbenos a{" "}
         <a className="text-brand-primarySoft hover:underline" href="mailto:cornugs@gmail.com">
@@ -176,11 +219,20 @@ function PrivacyEN() {
         <li>Custom settings and preferences</li>
       </ul>
 
+      <H3>Health data (Apple Health / Health Connect)</H3>
+      <p>Only if you connect the app with Apple Health (iOS) or Health Connect (Android), and with your explicit permission:</p>
+      <ul className="list-disc pl-5 space-y-1.5">
+        <li>Active and total calories, and steps</li>
+        <li>Heart rate and resting heart rate</li>
+        <li>Workout/exercise sessions and distance (from your watch or other apps)</li>
+      </ul>
+
       <H3>Device permissions</H3>
       <ul className="list-disc pl-5 space-y-1.5">
         <li><strong className="text-slate-300">Camera:</strong> to scan food barcodes, perform OCR on nutrition labels, and capture custom exercise photos</li>
         <li><strong className="text-slate-300">Storage / Gallery:</strong> to select images</li>
         <li><strong className="text-slate-300">Keep screen on:</strong> during meditation sessions</li>
+        <li><strong className="text-slate-300">Apple Health / Health Connect:</strong> with your permission, to read your health metrics and (optionally) save your workouts</li>
       </ul>
 
       <H3>Technical data</H3>
@@ -216,7 +268,39 @@ function PrivacyEN() {
         <li><strong className="text-slate-300">ML Kit (Google):</strong> text recognition on photos (processed locally on your device)</li>
       </ul>
 
-      <H2>5. Storage and security</H2>
+      <H2>5. Health data (Apple Health / Health Connect)</H2>
+      <p>
+        Connecting with Apple Health (iOS) or Health Connect (Android) is fully
+        optional. Only with your explicit permission do we access: active and
+        total calories, steps, heart rate and resting heart rate,
+        workout/exercise sessions, and distance. If you enable saving, we also
+        write the workouts you log in the app back to Apple Health / Health
+        Connect (activity type, duration, calories, and distance).
+      </p>
+      <p>
+        <strong className="text-slate-300">How we use it:</strong> solely to show
+        your Body pillar stats and to let your calories, steps, and workouts
+        count toward your missions and streaks. It is stored in your account
+        (Firebase) to sync across your devices and cached locally on your
+        device.
+      </p>
+      <p>
+        <strong className="text-slate-300">What we NEVER do:</strong> we do not
+        sell or share your health data with third parties, we do not use it for
+        advertising, marketing, or targeting purposes, and we do not use it to
+        train AI models. Data obtained from Apple Health (HealthKit) and Health
+        Connect is never used for any of those purposes.
+      </p>
+      <p>
+        <strong className="text-slate-300">Control:</strong> you can revoke
+        access at any time from Apple Health (iOS) or Health Connect (Android),
+        or from the app's settings; once revoked, we stop reading and writing
+        health data. Our handling of this data complies with Apple HealthKit
+        requirements and the Health Connect by Android permissions policy
+        (Google Play).
+      </p>
+
+      <H2>6. Storage and security</H2>
       <p>
         Your data is stored on Google Cloud Platform servers (Firebase). We
         implement standard security measures: encryption in transit (HTTPS),
@@ -224,7 +308,7 @@ function PrivacyEN() {
         access your data.
       </p>
 
-      <H2>6. Your rights</H2>
+      <H2>7. Your rights</H2>
       <ul className="list-disc pl-5 space-y-1.5">
         <li><strong className="text-slate-300">Access:</strong> you can view all your data in the app</li>
         <li><strong className="text-slate-300">Deletion:</strong> you can delete your account and all associated data from Settings → Delete account, or by writing to us</li>
@@ -232,21 +316,21 @@ function PrivacyEN() {
         <li><strong className="text-slate-300">Correction:</strong> you can edit any data directly in the app</li>
       </ul>
 
-      <H2>7. Minors</H2>
+      <H2>8. Minors</H2>
       <p>
         The Protocol is not directed at children under 13. We do not knowingly
         collect data from children under 13. If we discover such data was
         collected, we will delete it.
       </p>
 
-      <H2>8. Changes to this policy</H2>
+      <H2>9. Changes to this policy</H2>
       <p>
         We may update this policy. We will notify significant changes via the
         app or by email. The "Last updated" date always reflects the current
         version.
       </p>
 
-      <H2>9. Contact</H2>
+      <H2>10. Contact</H2>
       <p>
         For privacy questions, email us at{" "}
         <a className="text-brand-primarySoft hover:underline" href="mailto:cornugs@gmail.com">
