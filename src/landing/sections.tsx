@@ -133,6 +133,7 @@ const PILLARS: {
   points: string[]
   shot: string
   alt: string
+  wide?: boolean
 }[] = [
   {
     key: "cuerpo",
@@ -174,9 +175,10 @@ const PILLARS: {
     name: "Mente",
     title: "Lee con intención",
     body: "Lleva tus libros a la app y léelos en un lector cómodo. Tus páginas leídas también te hacen subir.",
-    points: ["Lector de EPUB y PDF", "Biblioteca y progreso por libro", "Tus páginas cuentan para tus misiones"],
-    shot: "/shots/lector.webp",
-    alt: "Lector de libros dentro de la app",
+    points: ["Lector de EPUB y PDF", "A dos páginas en iPad y plegables, como un libro", "Tus páginas cuentan para tus misiones"],
+    shot: "/shots/lector-duo.webp",
+    alt: "Lector a dos páginas en el iPhone Duo abierto",
+    wide: true,
   },
 ]
 
@@ -218,7 +220,13 @@ export function Pillars() {
                 </ul>
               </div>
               <div className="flex justify-center">
-                <Phone src={p.shot} alt={p.alt} glow={`${p.color}88`} className="w-[230px] sm:w-[270px]" />
+                <Phone
+                  src={p.shot}
+                  alt={p.alt}
+                  glow={`${p.color}88`}
+                  wide={p.wide}
+                  className={p.wide ? "w-full max-w-[560px]" : "w-[230px] sm:w-[270px]"}
+                />
               </div>
             </article>
           ))}
@@ -344,7 +352,7 @@ const FAQ = [
   },
   {
     q: "¿En qué teléfonos funciona?",
-    a: "En iPhone y Android, y también en iPad, tabletas y teléfonos plegables.",
+    a: "En iPhone y Android, y también en iPad, tabletas y plegables como el iPhone Duo, el Pixel Fold o el Galaxy Z Fold.",
   },
   {
     q: "¿Necesito internet?",

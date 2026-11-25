@@ -13,12 +13,15 @@ export function Phone({
   alt,
   glow,
   eager = false,
+  wide = false,
   className = "",
 }: {
   src: string
   alt: string
   glow?: string
   eager?: boolean
+  /** A sideways capture (open iPhone Duo, 1100x774). */
+  wide?: boolean
   className?: string
 }) {
   return (
@@ -30,16 +33,16 @@ export function Phone({
           style={{ background: `radial-gradient(circle, ${glow}, transparent 62%)` }}
         />
       ) : null}
-      <div className="phone-frame relative">
+      <div className={`phone-frame relative ${wide ? "phone-frame-wide" : ""}`}>
         <img
           src={src}
           alt={alt}
-          width={600}
-          height={1304}
+          width={wide ? 1100 : 600}
+          height={wide ? 774 : 1304}
           loading={eager ? "eager" : "lazy"}
           decoding="async"
           {...(eager ? { fetchPriority: "high" as const } : {})}
-          className="block w-full h-auto rounded-[2rem] sm:rounded-[2.4rem]"
+          className={`block w-full h-auto ${wide ? "rounded-[1.2rem] sm:rounded-[1.6rem]" : "rounded-[2rem] sm:rounded-[2.4rem]"}`}
         />
       </div>
     </div>

@@ -417,6 +417,10 @@
   @media (min-width: 640px) {
     .phone-frame { padding: 9px; border-radius: 2.9rem; }
   }
+  .phone-frame-wide { padding: 8px; border-radius: 1.6rem; }
+  @media (min-width: 640px) {
+    .phone-frame-wide { padding: 10px; border-radius: 2.1rem; }
+  }
 
   .store-btn {
     background: #0c0a17;
