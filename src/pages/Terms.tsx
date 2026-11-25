@@ -9,7 +9,7 @@ export function Terms() {
   return (
     <LegalLayout
       title={lang === "es" ? "Términos de Servicio" : "Terms of Service"}
-      lastUpdated={lang === "es" ? "3 de mayo de 2026" : "May 3, 2026"}
+      lastUpdated={lang === "es" ? "24 de noviembre de 2026" : "November 24, 2026"}
     >
       <LangSwitch lang={lang} onChange={setLang} />
       {lang === "es" ? <TermsES /> : <TermsEN />}
@@ -99,12 +99,9 @@ function TermsES() {
       </p>
 
       <H2>6. Suscripciones premium</H2>
-      <p>
-        Algunas funcionalidades requieren suscripción premium ($4.99 USD/mes o
-        equivalente). Las suscripciones se renuevan automáticamente. Puedes
-        cancelar en cualquier momento desde la configuración de tu cuenta de
-        Google Play o App Store.
-      </p>
+      <p>Algunas funciones requieren una suscripción Premium. El precio vigente se muestra en la app y en la tienda antes de comprar (actualmente $4.99 USD al mes o su equivalente local). La suscripción se renueva automáticamente cada mes hasta que la canceles desde tu cuenta de Google Play o App Store; la cancelación aplica al final del periodo ya pagado.</p>
+      <p>Las funciones, límites y contenidos incluidos en Premium pueden cambiar con el tiempo: podemos agregar, modificar o retirar funciones para mejorar el servicio. Si cambiamos el precio, te avisaremos con anticipación por la app o la tienda, y el nuevo precio solo aplicará a partir de tu siguiente renovación, conforme a las reglas de Google Play y App Store. Si no estás de acuerdo, puedes cancelar antes de que se renueve.</p>
+      <p>Los reembolsos se gestionan según las políticas de la tienda donde compraste.</p>
 
       <H2>7. Disponibilidad</H2>
       <p>
@@ -205,11 +202,9 @@ function TermsEN() {
       </p>
 
       <H2>6. Premium subscriptions</H2>
-      <p>
-        Some features require premium subscription ($4.99 USD/month or
-        equivalent). Subscriptions auto-renew. You can cancel anytime from your
-        Google Play or App Store account settings.
-      </p>
+      <p>Some features require a Premium subscription. The current price is shown in the app and in the store before purchase (currently $4.99 USD a month or the local equivalent). It renews automatically every month until you cancel it from your Google Play or App Store account; cancellation takes effect at the end of the period already paid.</p>
+      <p>The features, limits and content included in Premium may change over time: we may add, modify or remove features to improve the service. If we change the price, we will notify you in advance through the app or the store, and the new price will only apply from your next renewal, in line with Google Play and App Store rules. If you do not agree, you can cancel before it renews.</p>
+      <p>Refunds are handled under the policies of the store where you purchased.</p>
 
       <H2>7. Availability</H2>
       <p>
