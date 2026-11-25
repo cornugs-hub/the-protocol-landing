@@ -1,29 +1,21 @@
-import { Nav } from "../components/Nav"
-import { Hero } from "../components/Hero"
-import { Manifesto } from "../components/Manifesto"
-import { Pillars } from "../components/Pillars"
-import { Versus } from "../components/Versus"
-import { Process } from "../components/Process"
-import { Operators } from "../components/Operators"
-import { Code } from "../components/Code"
-import { FinalCta } from "../components/FinalCta"
+import { Nav } from "../landing/Nav"
+import { Community, Faq, FinalCta, Hero, HowItWorks, Pillars, Plans } from "../landing/sections"
 import { Footer } from "../components/Footer"
 
 export function Landing() {
   return (
-    <>
+    <div className="landing bg-ink text-white overflow-x-clip">
       <Nav />
       <main>
         <Hero />
-        <Manifesto />
+        <HowItWorks />
         <Pillars />
-        <Versus />
-        <Process />
-        <Operators />
-        <Code />
+        <Community />
+        <Plans />
+        <Faq />
         <FinalCta />
       </main>
       <Footer />
-    </>
+    </div>
   )
 }

@@ -7,6 +7,15 @@ export default {
   theme: {
     extend: {
       colors: {
+        // The app's own palette (lib/core/constants/colors.dart).
+        ink: { DEFAULT: "#131121", deep: "#0C0A17", card: "#1C1A2E", line: "#2A2742" },
+        pillar: {
+          body: "#FF4B4B",
+          fuel: "#00FF94",
+          spirit: "#7B68F0",
+          mind: "#00C2FF",
+        },
+        rankS: "#FFC83D",
         brand: {
           void: "#02030A",
           deep: "#0A0D1F",
